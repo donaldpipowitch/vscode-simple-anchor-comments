@@ -1,0 +1,59 @@
+{
+  "name": "vscode-simple-anchor-comments",
+  "displayName": "vscode-simple-anchor-comments",
+  "publisher": "donaldpipowitch",
+  "description": "This adds a view which allows you to easily jump to anchor comments in VS Code.",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/donaldpipowitch/vscode-simple-anchor-comments"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "vscode-simple-anchor-comments",
+          "name": "Anchor Comments"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "vscode-simple-anchor-comments",
+        "contents": "No anchor comments found."
+      }
+    ],
+    "commands": [
+      {
+        "command": "vscode-simple-anchor-comments.sayHello",
+        "title": "vscode-simple-anchor-comments: Debug Hello"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "prettier --log-level warn --write . && eslint src --ext ts"
+  },
+  "dependencies": {
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.82.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.47.0",
+    "prettier": "^3.0.3"
+  }
+}
